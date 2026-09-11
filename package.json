@@ -1,0 +1,36 @@
+{
+  "name": "video-harness",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n server,ui -c cyan,magenta \"npm run dev:server\" \"npm run dev:ui\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:ui": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint server src",
+    "preview": "vite preview",
+    "test": "tsx server/evalSuite.ts",
+    "harness": "tsx server/cli.ts",
+    "fixtures": "tsx server/cli.ts fixtures"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "tsx": "^4.20.5",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
